@@ -1,96 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Allino — Bhopal self-drive cars and self-ride bikes. Book your ride on your terms.">
-  <title>Allino — Self-Drive Mobility</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Allino — Bhopal self-drive cars and self-ride bikes."><title>Allino — Self-Drive Mobility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Allino home">
-      <span class="brand-mark">∞</span><span><strong>Allino</strong><small>Self-Drive Mobility</small></span>
-    </a>
-    <nav class="nav" id="nav">
-      <a class="active" href="#home">Home</a><a href="#fleet">Our Fleet</a><a href="#pricing">Pricing</a><a href="#how">How It Works</a><a href="#about">About Us</a><a href="#contact">Contact</a>
-    </nav>
-    <a class="btn btn-primary header-book" href="#booking">Book Now</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-bg"></div>
-      <div class="hero-content wrap">
-        <div class="hero-copy">
-          <div class="eyebrow"><i></i> BHOPAL'S SELF-DRIVE MOBILITY</div>
-          <h1>Freedom on<br><span>Your Terms!</span></h1>
-          <h2>Rent a Car. Ride a Bike. Move Freely.</h2>
-          <p>Self-drive cars and self-ride bikes on rent in Bhopal — affordable prices, simple booking and a service you can trust.</p>
-          <div class="hero-features">
-            <div><b>◉</b><span>Self-Drive<br>Freedom</span></div><div><b>◆</b><span>Affordable<br>Prices</span></div><div><b>✓</b><span>Verified &amp;<br>Safe</span></div><div><b>◌</b><span>24×7<br>Support</span></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="visual-glow"></div>
-          <div class="vehicle-photo main-vehicle"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=85" alt="Car ready for rental"></div>
-          <div class="vehicle-photo bike-photo"><img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=85" alt="Motorbike ready for rental"></div>
-          <button class="slider-arrow left" data-slide="prev" aria-label="Previous vehicle">‹</button><button class="slider-arrow right" data-slide="next" aria-label="Next vehicle">›</button>
-          <span class="vehicle-tag">ALTO CNG</span>
-          <div class="dots"><i class="on"></i><i></i><i></i></div>
-        </div>
-      </div>
-
-      <section class="booking-card wrap" id="booking">
-        <div class="booking-head"><div><div class="section-kicker">BOOK YOUR RIDE</div><h3>Where do you want to go?</h3></div><span class="online"><i></i> Booking online</span></div>
-        <div class="ride-tabs"><button class="ride-tab active" data-type="car">🚗 Self-Drive Car</button><button class="ride-tab" data-type="bike">🛵 Self-Ride Bike</button></div>
-        <div class="booking-grid">
-          <label>Pickup Location<input value="Bhopal, Madhya Pradesh" aria-label="Pickup location"></label>
-          <label>Pickup Date<input type="date" id="pickupDate"></label>
-          <label>Pickup Time<input type="time" value="10:00" aria-label="Pickup time"></label>
-          <label>Return Date<input type="date" id="returnDate"></label>
-          <label>Return Time<input type="time" value="10:00" aria-label="Return time"></label>
-          <button class="btn btn-primary search-btn" id="searchBtn">Search Vehicles <span>→</span></button>
-        </div>
-      </section>
-    </section>
-
-    <section class="app-promo wrap">
-      <div><div class="section-kicker light">ALL NEW</div><h3>ALLINO APP</h3><p>Book. Ride. Relax.</p><strong>Download Now →</strong></div>
-      <div class="phone"><div class="phone-screen"><span>Allino</span><b>Where do<br>you want to go?</b><div class="phone-card">🚗 Self-Drive Car</div><div class="phone-card">📍 Bhopal</div></div></div>
-      <div class="stores"><span>GET IT ON</span><b>Google Play</b><span>Download on the</span><b>App Store</b></div>
-    </section>
-
-    <section class="stats"><div class="wrap stats-grid"><div><b>10,000+</b><span>Happy Customers</span></div><div><b>20+</b><span>Well Maintained Vehicles</span></div><div><b>100%</b><span>Secure Payments</span></div><div><b>24×7</b><span>Customer Support</span></div><div><b>4.8/5</b><span>Customer Rating</span></div></div></section>
-
-    <section class="how wrap" id="how">
-      <div class="center"><div class="section-kicker">HOW IT WORKS</div><h2>Renting with Allino is simple and hassle-free.</h2></div>
-      <div class="steps"><div><i>01</i><b>🚗</b><h3>Choose Vehicle</h3><p>Browse our wide range of cars and bikes.</p></div><div><i>02</i><b>▣</b><h3>Select Dates</h3><p>Pick your pickup and return dates &amp; time.</p></div><div><i>03</i><b>▤</b><h3>Submit KYC</h3><p>Verify your documents quick &amp; easy.</p></div><div><i>04</i><b>▣</b><h3>Make Payment</h3><p>Secure your booking with easy payment.</p></div><div><i>05</i><b>🔑</b><h3>Start Your Ride</h3><p>Pick up your vehicle and ride freely.</p></div></div>
-    </section>
-
-    <section class="fleet wrap" id="fleet">
-      <div class="section-row"><div><div class="section-kicker">OUR FLEET</div><h2>Choose from our wide range of well-maintained vehicles.</h2><p>Clean, comfortable vehicles designed for everyday freedom.</p></div><div class="filters"><button class="filter active">All</button><button class="filter">Cars</button><button class="filter">Bikes</button></div></div>
-      <div class="fleet-grid">
-        <article class="vehicle-card"><div class="card-image"><span>CAR</span><em>Available*</em><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=85" alt="Alto CNG style car"></div><div class="card-body"><div class="card-title"><h3>Alto CNG</h3><b>★ 4.8</b></div><p>4 Seats · CNG · Manual</p><div class="price">₹1,800 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article>
-        <article class="vehicle-card"><div class="card-image"><span>BIKE</span><em>Available*</em><img src="https://images.unsplash.com/photo-1558980394-0cce6e4e6e2f?auto=format&fit=crop&w=800&q=85" alt="Activa style scooter"></div><div class="card-body"><div class="card-title"><h3>Activa 6G</h3><b>★ 4.8</b></div><p>2 Seats · Petrol · Automatic</p><div class="price">₹199 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article>
-        <article class="vehicle-card"><div class="card-image"><span>CAR</span><em>Available*</em><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=85" alt="WagonR style car"></div><div class="card-body"><div class="card-title"><h3>WagonR CNG</h3><b>★ 4.7</b></div><p>5 Seats · CNG · Manual</p><div class="price">₹2,000 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article>
-        <article class="vehicle-card"><div class="card-image"><span>CAR</span><em>Available*</em><img src="https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&w=800&q=85" alt="Dzire style car"></div><div class="card-body"><div class="card-title"><h3>Dzire CNG</h3><b>★ 4.8</b></div><p>4 Seats · CNG · Manual</p><div class="price">₹2,200 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article>
-      </div>
-    </section>
-
-    <section class="pricing" id="pricing"><div class="wrap"><div class="center"><div class="section-kicker">SIMPLE PRICING</div><h2>Pay for the time you need.</h2><p>Clean plans for short trips, weekends and longer stays.</p></div><div class="plans"><article><span>1 DAY</span><strong>₹1,800<small>/day</small></strong><ul><li>✓ All-inclusive base rate</li><li>✓ Customer fuel responsibility</li><li>✓ Security deposit as applicable</li><li>✓ Support included</li></ul><a class="btn btn-outline" href="#booking">Book Now</a></article><article class="popular"><label>POPULAR</label><span>3 DAYS</span><strong>₹5,100<small>/3 days</small></strong><ul><li>✓ Better rate for weekends</li><li>✓ Customer fuel responsibility</li><li>✓ Security deposit as applicable</li><li>✓ Support included</li></ul><a class="btn btn-primary" href="#booking">Book Now</a></article><article><span>7 DAYS</span><strong>₹10,500<small>/week</small></strong><ul><li>✓ Great for road trips</li><li>✓ Customer fuel responsibility</li><li>✓ Security deposit as applicable</li><li>✓ Support included</li></ul><a class="btn btn-outline" href="#booking">Book Now</a></article></div></div></section>
-
-    <section class="about wrap" id="about"><div class="about-image"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1100&q=85" alt="Bhopal road scene"></div><div><div class="section-kicker">ABOUT ALLINO</div><h2>Move freely, without the hassle.</h2><p>Allino is built for people who want the freedom of their own ride without the cost and commitment of ownership. From quick city trips to weekend plans, choose a clean, verified vehicle and get moving.</p><div class="about-points"><b>✓ Verified vehicles</b><b>✓ Transparent pricing</b><b>✓ Easy KYC &amp; booking</b><b>✓ 24×7 customer support</b></div><a class="btn btn-primary" href="#contact">Talk to Allino →</a></div></section>
-
-    <section class="contact" id="contact"><div class="wrap contact-box"><div><div class="section-kicker light">NEED HELP?</div><h2>Ready to move on your terms?</h2><p>Book your next ride or talk to our team for support.</p></div><div class="contact-actions"><a class="btn btn-yellow" href="tel:+919893345906">Call +91 98933 45906</a><a class="btn btn-light" href="#booking">Book a Ride →</a></div></div></section>
-  </main>
-
-  <footer><div class="wrap footer-grid"><div><a class="brand footer-brand" href="#home"><span class="brand-mark">∞</span><span><strong>Allino</strong><small>Self-Drive Mobility</small></span></a><p>Self-drive cars and self-ride bikes in Bhopal. Freedom on your terms.</p></div><div><h4>Company</h4><a href="#about">About Us</a><a href="#fleet">Our Fleet</a><a href="#pricing">Pricing</a></div><div><h4>Support</h4><a href="#how">How It Works</a><a href="#contact">Contact</a><a href="#booking">Book Now</a></div><div><h4>Contact</h4><span>Bhopal, Madhya Pradesh</span><a href="tel:+919893345906">+91 98933 45906</a></div></div><div class="copyright">© 2026 Allino Mobility. All rights reserved.</div></footer>
-  <div class="toast" id="toast">Great! Let's find available vehicles for your trip.</div>
-  <script src="app.js"></script>
-</body>
-</html>
+<header class="site-header"><a class="brand" href="#home"><span class="brand-mark">∞</span><span><strong>Allino</strong><small>Self-Drive Mobility</small></span></a><nav class="nav"><a class="active" href="#home">Home</a><a href="#fleet">Our Fleet</a><a href="#pricing">Pricing</a><a href="#how">How It Works</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav><a class="btn btn-primary header-book" href="#booking">Book Now</a><button class="menu-btn" id="menuBtn">☰</button></header>
+<main>
+<section class="hero" id="home"><div class="hero-bg"></div><div class="wrap hero-inner">
+<div class="hero-copy"><div class="eyebrow"><i></i> BHOPAL'S SELF-DRIVE MOBILITY</div><h1>Freedom on<br><span>Your Terms!</span></h1><h2>Rent a Car. Ride a Bike. Move Freely.</h2><p>Self-drive cars &amp; self-ride bikes on rent in Bhopal.<br>Affordable prices, easy booking &amp; trusted service.</p><div class="hero-features"><div><b>◉</b><span>Self-Drive<br>Freedom</span></div><div><b>◆</b><span>Affordable<br>Prices</span></div><div><b>✓</b><span>Verified &amp;<br>Safe</span></div><div><b>◌</b><span>24×7<br>Support</span></div></div></div>
+<div class="hero-visual"><div class="hero-circle"></div><div class="main-vehicle"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1100&q=85" alt="Allino rental car"></div><div class="bike-photo"><img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=85" alt="Allino rental bike"></div><button class="slider-arrow left">‹</button><button class="slider-arrow right">›</button><span class="vehicle-tag">ALTO CNG</span><div class="dots"><i class="on"></i><i></i><i></i></div></div>
+<div class="booking-card" id="booking"><div class="booking-head"><div><div class="section-kicker">BOOK YOUR RIDE</div><h3>Where do you want to go?</h3></div><span class="online"><i></i> Booking online</span></div><div class="ride-tabs"><button class="ride-tab active">🚗 Self-Drive Car</button><button class="ride-tab">🛵 Self-Ride Bike</button></div><div class="booking-grid"><label>Pickup Location<input value="Bhopal, Madhya Pradesh"></label><label>Pickup Date<input type="date" id="pickupDate"></label><label>Pickup Time<input type="time" value="10:00"></label><label>Return Date<input type="date" id="returnDate"></label><label>Return Time<input type="time" value="10:00"></label><button class="btn btn-primary search-btn" id="searchBtn">Search Vehicles →</button></div></div>
+<div class="app-promo"><div><div class="section-kicker light">ALL NEW</div><h3>ALLINO APP</h3><p>Book. Ride. Relax.</p><strong>Download Now →</strong></div><div class="phone"><div class="phone-screen"><span>Allino</span><b>Where do<br>you want to go?</b><div>🚗 Self-Drive Car</div><div>📍 Bhopal</div></div></div><div class="stores"><small>GET IT ON</small><b>Google Play</b><small>Download on the</small><b>App Store</b></div></div>
+</div></section>
+<section class="stats"><div class="wrap stats-grid"><div><b>10,000+</b><span>Happy Customers</span></div><div><b>20+</b><span>Well Maintained Vehicles</span></div><div><b>100%</b><span>Secure Payments</span></div><div><b>24×7</b><span>Customer Support</span></div><div><b>4.8/5</b><span>Customer Rating</span></div></div></section>
+<section class="how wrap" id="how"><div class="center"><div class="section-kicker">HOW IT WORKS</div><h2>Renting with Allino is simple and hassle-free.</h2></div><div class="steps"><div><i>01</i><b>🚗</b><h3>Choose Vehicle</h3><p>Browse our wide range of cars and bikes.</p></div><div><i>02</i><b>▣</b><h3>Select Dates</h3><p>Pick your pickup and return dates &amp; time.</p></div><div><i>03</i><b>▤</b><h3>Submit KYC</h3><p>Verify your documents quick &amp; easy.</p></div><div><i>04</i><b>▣</b><h3>Make Payment</h3><p>Secure your booking with easy payment.</p></div><div><i>05</i><b>🔑</b><h3>Start Your Ride</h3><p>Pick up your vehicle and ride freely.</p></div></div></section>
+<section class="fleet wrap" id="fleet"><div class="section-row"><div><div class="section-kicker">OUR FLEET</div><h2>Choose from our wide range of well-maintained vehicles.</h2><p>Clean, comfortable vehicles designed for everyday freedom.</p></div><div class="filters"><button class="filter active">All</button><button class="filter">Cars</button><button class="filter">Bikes</button></div></div><div class="fleet-grid">
+<article class="vehicle-card"><div class="card-image"><span>CAR</span><em>Available*</em><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=85" alt="Alto CNG"></div><div class="card-body"><div class="card-title"><h3>Alto CNG</h3><b>★ 4.8</b></div><p>4 Seats · CNG · Manual</p><div class="price">₹1,800 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article>
+<article class="vehicle-card"><div class="card-image"><span>BIKE</span><em>Available*</em><img src="https://images.unsplash.com/photo-1558980394-0cce6e4e6e2f?auto=format&fit=crop&w=800&q=85" alt="Activa 6G"></div><div class="card-body"><div class="card-title"><h3>Activa 6G</h3><b>★ 4.8</b></div><p>2 Seats · Petrol · Automatic</p><div class="price">₹199 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article>
+<article class="vehicle-card"><div class="card-image"><span>CAR</span><em>Available*</em><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=85" alt="WagonR CNG"></div><div class="card-body"><div class="card-title"><h3>WagonR CNG</h3><b>★ 4.7</b></div><p>5 Seats · CNG · Manual</p><div class="price">₹2,000 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article>
+<article class="vehicle-card"><div class="card-image"><span>CAR</span><em>Available*</em><img src="https://images.unsplash.com/photo-1494905998402-395d579af36f?auto=format&fit=crop&w=800&q=85" alt="Dzire CNG"></div><div class="card-body"><div class="card-title"><h3>Dzire CNG</h3><b>★ 4.8</b></div><p>4 Seats · CNG · Manual</p><div class="price">₹2,200 <small>/day</small><a class="btn btn-primary" href="#booking">Book Now</a></div></div></article></div></section>
+<section class="pricing" id="pricing"><div class="wrap"><div class="center"><div class="section-kicker">SIMPLE PRICING</div><h2>Pay for the time you need.</h2><p>Clean plans for short trips, weekends and longer stays.</p></div><div class="plans"><article><span>1 DAY</span><strong>₹1,800<small>/day</small></strong><ul><li>✓ All-inclusive base rate</li><li>✓ Customer fuel responsibility</li><li>✓ Security deposit as applicable</li><li>✓ Support included</li></ul><a class="btn btn-outline" href="#booking">Book Now</a></article><article class="popular"><label>POPULAR</label><span>3 DAYS</span><strong>₹5,100<small>/3 days</small></strong><ul><li>✓ Better rate for weekends</li><li>✓ Customer fuel responsibility</li><li>✓ Security deposit as applicable</li><li>✓ Support included</li></ul><a class="btn btn-primary" href="#booking">Book Now</a></article><article><span>7 DAYS</span><strong>₹10,500<small>/week</small></strong><ul><li>✓ Great for road trips</li><li>✓ Customer fuel responsibility</li><li>✓ Security deposit as applicable</li><li>✓ Support included</li></ul><a class="btn btn-outline" href="#booking">Book Now</a></article></div></div></section>
+<section class="about wrap" id="about"><div class="about-image"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1100&q=85" alt="Bhopal road"></div><div><div class="section-kicker">ABOUT ALLINO</div><h2>Move freely, without the hassle.</h2><p>Allino is built for people who want the freedom of their own ride without the cost and commitment of ownership. Choose a clean, verified vehicle and get moving.</p><div class="about-points"><b>✓ Verified vehicles</b><b>✓ Transparent pricing</b><b>✓ Easy KYC &amp; booking</b><b>✓ 24×7 customer support</b></div><a class="btn btn-primary" href="#contact">Talk to Allino →</a></div></section>
+<section class="contact" id="contact"><div class="wrap contact-box"><div><div class="section-kicker light">NEED HELP?</div><h2>Ready to move on your terms?</h2><p>Book your next ride or talk to our team for support.</p></div><div class="contact-actions"><a class="btn btn-yellow" href="tel:+919893345906">Call +91 98933 45906</a><a class="btn btn-light" href="#booking">Book a Ride →</a></div></div></section>
+</main><footer><div class="wrap footer-grid"><div><a class="brand footer-brand" href="#home"><span class="brand-mark">∞</span><span><strong>Allino</strong><small>Self-Drive Mobility</small></span></a><p>Self-drive cars and self-ride bikes in Bhopal. Freedom on your terms.</p></div><div><h4>Company</h4><a href="#about">About Us</a><a href="#fleet">Our Fleet</a><a href="#pricing">Pricing</a></div><div><h4>Support</h4><a href="#how">How It Works</a><a href="#contact">Contact</a><a href="#booking">Book Now</a></div><div><h4>Contact</h4><span>Bhopal, Madhya Pradesh</span><a href="tel:+919893345906">+91 98933 45906</a></div></div><div class="copyright">© 2026 Allino Mobility. All rights reserved.</div></footer><div class="toast" id="toast">Great! Let's find available vehicles for your trip.</div><script src="app.js"></script>
+</body></html>
