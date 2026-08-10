@@ -2,7 +2,7 @@ name: Deploy Allino Next.js to GitHub Pages
 
 on:
   push:
-    branches: [main, feature/nextjs-rental-platform, feature/homepage-reference-final, feature/allino-all-pages, fix/github-pages-build]
+    branches: [main, feature/nextjs-rental-platform, feature/homepage-reference-final, feature/allino-all-pages, fix/github-pages-build, fix/homepage-hero-styling]
   workflow_dispatch:
 
 permissions:
