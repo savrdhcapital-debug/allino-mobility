@@ -31,6 +31,10 @@ jobs:
           find app -type f \( -name '*.tsx' -o -name '*.ts' -o -name '*.css' \) -print0 | xargs -0 sed -i 's#"/assets/#"assets/#g; s#\x27/assets/#\x27assets/#g'
       - name: Build
         run: npm run build
+      - name: Copy public vehicle assets
+        run: |
+          mkdir -p ./out/assets
+          cp -R ./assets/. ./out/assets/
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
