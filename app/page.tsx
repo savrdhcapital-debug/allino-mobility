@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CalendarDays, CarFront, CheckCircle2, Headphones, KeyRound, ShieldCheck, Smartphone, Tag } from "lucide-react";
+import { ArrowRight, CalendarDays, CarFront, CheckCircle2, Headphones, KeyRound, ShieldCheck, Smartphone, Tag, type LucideIcon } from "lucide-react";
 
 const vehicles = [
   { name: "Alto CNG", type: "CAR", meta: "4 Seats · CNG · Manual", price: "₹1,800", image: "/assets/alto-cng.svg" },
@@ -9,7 +9,13 @@ const vehicles = [
   { name: "WagonR CNG", type: "CAR", meta: "5 Seats · CNG · Manual", price: "₹2,000", image: "/assets/wagonr-cng.svg" },
   { name: "Dzire CNG", type: "CAR", meta: "4 Seats · CNG · Manual", price: "₹2,200", image: "/assets/dzire-cng.svg" },
 ];
-const steps = [["01",CarFront,"Choose Vehicle","Browse our cars and bikes."],["02",CalendarDays,"Select Dates","Pick pickup and return dates."],["03",CheckCircle2,"Submit KYC","Verify your documents quickly."],["04",ShieldCheck,"Make Payment","Secure your booking."],["05",KeyRound,"Start Your Ride","Pick up and ride freely."]];
+const steps: [string, LucideIcon, string, string][] = [
+  ["01", CarFront, "Choose Vehicle", "Browse our cars and bikes."],
+  ["02", CalendarDays, "Select Dates", "Pick pickup and return dates."],
+  ["03", CheckCircle2, "Submit KYC", "Verify your documents quickly."],
+  ["04", ShieldCheck, "Make Payment", "Secure your booking."],
+  ["05", KeyRound, "Start Your Ride", "Pick up and ride freely."],
+];
 
 export default function Home(){return <main>
 <header className="header"><a className="brand" href="#home"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></a><nav>{["Home","Our Fleet","Pricing","How It Works","About Us","Contact"].map(x=><a key={x} href={`#${x.toLowerCase().replaceAll(" ","-")}`}>{x}</a>)}</nav><a className="btn primary" href="#book">Book Now</a></header>
@@ -22,4 +28,4 @@ export default function Home(){return <main>
 <section className="about section" id="about-us"><div className="container about-grid"><div className="about-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Taj-ul-masajid%20bhopal.jpg" alt="Bhopal landmark"/></div><div><div className="section-kicker">ABOUT ALLINO</div><h2>Your trusted mobility partner in Bhopal.</h2><p>Allino gives customers a simple way to rent clean, verified cars and scooters without the cost of ownership.</p><div className="checks"><span>✓ Customer-first approach</span><span>✓ Transparent pricing</span><span>✓ Well-maintained fleet</span><span>✓ Responsive support</span></div><a className="btn primary" href="#contact">About Allino <ArrowRight size={18}/></a></div></div></section>
 <section className="contact section" id="contact"><div className="container contact-box"><div><div className="section-kicker light">READY TO RIDE?</div><h2>Freedom on your terms.</h2><p>Book your next ride or talk to our team.</p></div><div className="contact-actions"><a className="btn yellow" href="tel:+919893345906">Call +91 98933 45906</a><a className="btn light" href="#book">Book a Ride →</a></div></div></section>
 <footer><div className="container footer-grid"><div><a className="brand" href="#home"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></a><p>Self-drive cars and self-ride bikes in Bhopal. Freedom on your terms.</p></div><div><b>Company</b><a href="#about-us">About Us</a><a href="#our-fleet">Our Fleet</a><a href="#pricing">Pricing</a></div><div><b>Support</b><a href="#how-it-works">How It Works</a><a href="#contact">Contact</a><a href="#book">Book Now</a></div><div><b>Contact</b><span>Bhopal, Madhya Pradesh</span><a href="tel:+919893345906">+91 98933 45906</a></div></div><div className="copyright">© 2026 Allino Mobility. All rights reserved.</div></footer></main>}
-function Feature({icon:Icon,text}:{icon:typeof CarFront;text:string}){return <div><Icon/><span>{text}</span></div>}
+function Feature({icon:Icon,text}:{icon:LucideIcon;text:string}){return <div><Icon/><span>{text}</span></div>}
