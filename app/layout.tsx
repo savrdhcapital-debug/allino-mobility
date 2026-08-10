@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./hero.css";
 
 export const metadata: Metadata = {
   title: "Allino — Self-Drive Mobility",
