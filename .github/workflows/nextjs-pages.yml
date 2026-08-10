@@ -2,7 +2,7 @@ name: Deploy Allino Next.js to GitHub Pages
 
 on:
   push:
-    branches: [main, feature/nextjs-rental-platform, feature/homepage-reference-final, feature/allino-all-pages, fix/github-pages-build, fix/homepage-hero-styling]
+    branches: [main, feature/nextjs-rental-platform, feature/homepage-reference-final, feature/allino-all-pages, fix/github-pages-build, fix/homepage-hero-styling, fix/allino-page-assets]
   workflow_dispatch:
 
 permissions:
@@ -29,9 +29,6 @@ jobs:
           node-version: 20
       - name: Install
         run: npm install
-      - name: Fix GitHub Pages asset paths
-        run: |
-          find app -type f \( -name '*.tsx' -o -name '*.ts' -o -name '*.css' \) -print0 | xargs -0 sed -i 's#"/assets/#"assets/#g; s#\x27/assets/#\x27assets/#g'
       - name: Build
         run: npm run build
       - name: Copy public vehicle assets
