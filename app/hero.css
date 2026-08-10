@@ -1,4 +1,4 @@
-/* Hero vehicle presentation — use the real vehicle images from page.tsx and keep them side-by-side with no overlap. */
+/* Hero vehicle presentation — premium side-by-side composition with no overlap. */
 .reference-visual {
   height: 620px;
   padding: 10px 0 105px;
@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(18px, 2.5vw, 38px);
+  gap: clamp(22px, 3vw, 46px);
 }
 
 .reference-car,
@@ -21,23 +21,28 @@
   display: block;
   flex: 0 0 auto;
   object-fit: contain;
-  mix-blend-mode: normal;
-  filter: drop-shadow(0 24px 28px #0007);
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 24px 28px rgba(0,0,0,.28));
 }
 
-/* Do not replace the <img src> values from page.tsx with the old SVG assets. */
+/* The Verna source is a clean photo on white. Multiply removes the white box
+   so the car sits naturally on Allino's navy hero background. */
 .reference-car {
-  width: min(56%, 455px);
-  height: 365px;
+  width: min(61%, 500px);
+  height: 390px;
+  mix-blend-mode: multiply;
 }
 
 .reference-bike {
-  width: min(36%, 295px);
-  height: 340px;
+  width: min(31%, 265px);
+  height: 320px;
+  mix-blend-mode: normal;
 }
 
 .reference-app-card {
-  right: 12%;
+  right: 9%;
   bottom: 10px;
 }
 
@@ -54,21 +59,21 @@
 
   .reference-vehicle-stage {
     height: 430px;
-    gap: 14px;
+    gap: 18px;
   }
 
   .reference-car {
-    width: 56%;
-    height: 325px;
+    width: 61%;
+    height: 350px;
   }
 
   .reference-bike {
-    width: 36%;
-    height: 305px;
+    width: 32%;
+    height: 290px;
   }
 
   .reference-app-card {
-    right: 9%;
+    right: 7%;
   }
 }
 
@@ -80,17 +85,17 @@
 
   .reference-vehicle-stage {
     height: 390px;
-    gap: 9px;
+    gap: 10px;
   }
 
   .reference-car {
-    width: 61%;
+    width: 64%;
     height: 285px;
   }
 
   .reference-bike {
-    width: 34%;
-    height: 260px;
+    width: 33%;
+    height: 250px;
   }
 
   .reference-app-card {
@@ -115,13 +120,13 @@
   }
 
   .reference-car {
-    width: 62%;
-    height: 250px;
+    width: 65%;
+    height: 235px;
   }
 
   .reference-bike {
-    width: 33%;
-    height: 225px;
+    width: 32%;
+    height: 210px;
   }
 
   .reference-app-card {
