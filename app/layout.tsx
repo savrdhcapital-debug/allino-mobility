@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./hero.css";
+import "./responsive.css";
 import NavigationBridge from "./NavigationBridge";
 
 export const metadata: Metadata = {
