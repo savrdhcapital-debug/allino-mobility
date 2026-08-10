@@ -1,17 +1,24 @@
-/* Allino — How It Works scroll animations */
-.how .steps{position:relative;isolation:isolate}
-.how .steps:before{content:"";position:absolute;left:10%;right:10%;top:44px;height:2px;background:#dce7f8;z-index:-2}
-.how .steps:after{content:"";position:absolute;left:10%;top:44px;width:0;height:2px;background:linear-gradient(90deg,#0052cc,#2b7cff);transform-origin:left center;z-index:-1;transition:width 1.5s cubic-bezier(.22,1,.36,1)}
-.how.is-visible .steps:after{width:80%}
-.how .steps>div{opacity:0;transform:translateY(42px);filter:blur(2px);transition:opacity .7s ease,transform .8s cubic-bezier(.22,1,.36,1),filter .8s ease}
-.how.is-visible .steps>div{opacity:1;transform:translateY(0);filter:blur(0)}
-.how.is-visible .steps>div:nth-child(1){transition-delay:.05s}
-.how.is-visible .steps>div:nth-child(2){transition-delay:.18s}
-.how.is-visible .steps>div:nth-child(3){transition-delay:.31s}
-.how.is-visible .steps>div:nth-child(4){transition-delay:.44s}
-.how.is-visible .steps>div:nth-child(5){transition-delay:.57s}
-.how .steps>div>b{transition:transform .5s ease,box-shadow .5s ease}
-.how.is-visible .steps>div:hover>b{transform:translateY(-5px) scale(1.05);box-shadow:0 12px 28px rgba(0,82,204,.16)}
-@media(prefers-reduced-motion:reduce){.how .steps>div{opacity:1;transform:none;filter:none;transition:none}.how .steps:after{width:80%;transition:none}.how.is-visible .steps>div:hover>b{transform:none;box-shadow:none}}
-@media(max-width:1100px){.how .steps:before,.how .steps:after{left:8%;right:8%}.how.is-visible .steps:after{width:84%}}
-@media(max-width:800px){.how .steps:before{left:50%;right:auto;top:22px;bottom:22px;width:2px;height:auto}.how .steps:after{left:50%;top:22px;width:2px;height:0;background:linear-gradient(180deg,#0052cc,#2b7cff);transition:height 1.5s cubic-bezier(.22,1,.36,1)}.how.is-visible .steps:after{width:2px;height:calc(100% - 44px)}.how .steps>div{position:relative;z-index:1}}
+/* Allino — Home-style How It Works scroll animations */
+.how-page{position:relative;padding-top:76px;padding-bottom:84px;overflow:hidden}
+.how-page .center{margin-bottom:48px}
+.how-page .how-intro{color:#71809a;max-width:650px;margin:12px auto 0;line-height:1.7}
+.how-page .steps{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;padding:8px 0 20px}
+.how-page .steps:before{content:"";position:absolute;left:10%;right:10%;top:48px;height:2px;background:#dce7f8;z-index:-2}
+.how-page .steps:after{content:"";position:absolute;left:10%;top:48px;width:0;height:2px;background:linear-gradient(90deg,#0052cc,#2b7cff);transform-origin:left center;z-index:-1;transition:width 1.5s cubic-bezier(.22,1,.36,1)}
+.how-page.is-visible .steps:after{width:80%}
+.how-page .steps>div{position:relative;text-align:center;opacity:0;transform:translateY(42px);filter:blur(2px);transition:opacity .7s ease,transform .8s cubic-bezier(.22,1,.36,1),filter .8s ease}
+.how-page.is-visible .steps>div{opacity:1;transform:translateY(0);filter:blur(0)}
+.how-page.is-visible .steps>div:nth-child(1){transition-delay:.05s}.how-page.is-visible .steps>div:nth-child(2){transition-delay:.18s}.how-page.is-visible .steps>div:nth-child(3){transition-delay:.31s}.how-page.is-visible .steps>div:nth-child(4){transition-delay:.44s}.how-page.is-visible .steps>div:nth-child(5){transition-delay:.57s}
+.how-page .steps>div>i{display:block;font-style:normal;color:#2465e8;font-size:11px;font-weight:800;margin-bottom:9px}
+.how-page .steps>div>b{width:72px;height:72px;margin:0 auto 17px;border-radius:50%;display:grid;place-items:center;background:#edf4ff;color:#0052cc;font-size:25px;box-shadow:0 8px 24px rgba(0,82,204,.06);transition:transform .5s ease,box-shadow .5s ease}
+.how-page.is-visible .steps>div:hover>b{transform:translateY(-6px) scale(1.06);box-shadow:0 16px 34px rgba(0,82,204,.16)}
+.how-page .steps h3{font-size:16px;margin:0 0 8px;color:#10234b}.how-page .steps p{font-size:11px;line-height:1.55;color:#71809a;max-width:175px;margin:0 auto}
+.how-benefits{padding-top:78px!important;padding-bottom:0!important;opacity:0;transform:translateY(48px);transition:opacity .8s ease .7s,transform .9s cubic-bezier(.22,1,.36,1) .7s}
+.how-page.is-visible .how-benefits{opacity:1;transform:translateY(0)}
+.how-benefits .about-image{transform:translateX(28px);opacity:0;transition:opacity .9s ease 1s,transform 1s cubic-bezier(.22,1,.36,1) 1s}
+.how-page.is-visible .how-benefits .about-image{transform:translateX(0);opacity:1}
+.how-page-hero{position:relative;overflow:hidden}.how-page-hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.13);border-radius:50%;right:-90px;top:-150px;animation:howFloat 8s ease-in-out infinite}.how-page-hero .wrap{position:relative;z-index:1}
+@keyframes howFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-20px,25px,0)}}
+@media(prefers-reduced-motion:reduce){.how-page .steps>div,.how-benefits,.how-benefits .about-image{opacity:1;transform:none;filter:none;transition:none}.how-page .steps:after{width:80%;transition:none}.how-page-hero:after{animation:none}.how-page.is-visible .steps>div:hover>b{transform:none;box-shadow:none}}
+@media(max-width:1100px){.how-page .steps{grid-template-columns:repeat(5,minmax(130px,1fr));gap:8px;overflow:visible}.how-page .steps:before,.how-page .steps:after{left:8%;right:8%}.how-page.is-visible .steps:after{width:84%}.how-page .steps p{font-size:10px}}
+@media(max-width:800px){.how-page{padding-top:55px;padding-bottom:58px}.how-page .center{margin-bottom:34px}.how-page .steps{display:grid;grid-template-columns:1fr;gap:0;padding:0 0 15px}.how-page .steps:before{left:50%;right:auto;top:25px;bottom:25px;width:2px;height:auto}.how-page .steps:after{left:50%;top:25px;width:2px;height:0;background:linear-gradient(180deg,#0052cc,#2b7cff);transition:height 1.5s cubic-bezier(.22,1,.36,1)}.how-page.is-visible .steps:after{width:2px;height:calc(100% - 50px)}.how-page .steps>div{padding:12px 12px 34px;z-index:1}.how-page .steps>div>i{margin-bottom:7px}.how-page .steps>div>b{width:58px;height:58px;font-size:21px;margin-bottom:13px}.how-page .steps p{max-width:260px;font-size:11px}.how-benefits{padding-top:42px!important}.how-page-hero:after{width:250px;height:250px;right:-110px;top:-100px}}
