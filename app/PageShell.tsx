@@ -3,4 +3,23 @@ import Link from "next/link";
 const links = [["Home","/"],["About Us","/about/"],["Our Fleet","/fleet/"],["Pricing","/pricing/"],["How It Works","/how-it-works/"],["Blog","/blog/"],["Contact Us","/contact/"]];
 
 export default function PageShell({title,kicker,children}:{title:string;kicker:string;children:React.ReactNode}){
-  return <><header className="header"><Link className="brand" href="/"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></Link><nav>{links.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}</nav><Link className="btn primary" href="/book/">Book Now</Link></header><main><section className="section page-hero"><div className="container center"><div className="section-kicker">{kicker}</div><h1>{title}</h1><p className="page-lead">Simple, reliable self-drive mobility in Bhopal.</p></div></section>{children}</main><footer><div className="container footer-grid"><div><Link className="brand" href="/"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></Link><p>Self-drive cars and self-ride bikes in Bhopal. Freedom on your terms.</p></div><div><b>Quick Links</b>{links.slice(0,5).map(([label,href])=><Link key={href} href={href}>{label}</Link>)}</div><div><b>Our Policies</b><Link href="/terms/">Terms & Conditions</Link><Link href="/privacy-policy/">Privacy Policy</Link><Link href="/cancellation-policy/">Cancellation Policy</Link><Link href="/refund-policy/">Refund Policy</Link></div><div><b>Contact</b><span>Bhopal, Madhya Pradesh</span><a href="tel:+919810995006">+91 98109 95006</a><a href="mailto:info@allino.in">info@allino.in</a><div className="socials"><a href="#">Instagram</a><a href="#">YouTube</a></div></div></div><div className="copyright">© 2026 Allino Teol Mobility Private Limited. All Rights Reserved.</div></footer></>}
+  return <>
+    <header className="header">
+      <Link className="brand" href="/">
+        <span className="brand-mark">∞</span>
+        <span><b>Allino</b><small>Self-Drive Mobility</small></span>
+      </Link>
+      <input className="nav-toggle" id="allino-nav-toggle" type="checkbox" aria-label="Open navigation" />
+      <label className="nav-toggle-label" htmlFor="allino-nav-toggle"><span></span><span></span><span></span></label>
+      <nav className="site-nav">{links.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}</nav>
+      <Link className="btn primary header-book" href="/book/">Book Now</Link>
+    </header>
+    <main><section className="section page-hero"><div className="container center"><div className="section-kicker">{kicker}</div><h1>{title}</h1><p className="page-lead">Simple, reliable self-drive mobility in Bhopal.</p></div></section>{children}</main>
+    <footer><div className="container footer-grid">
+      <div><Link className="brand" href="/"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></Link><p>Self-drive cars and self-ride bikes in Bhopal. Freedom on your terms.</p></div>
+      <div><b>Quick Links</b>{links.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}</div>
+      <div><b>Our Policies</b><Link href="/terms/">Terms & Conditions</Link><Link href="/privacy-policy/">Privacy Policy</Link><Link href="/cancellation-policy/">Cancellation Policy</Link><Link href="/refund-policy/">Refund Policy</Link></div>
+      <div><b>Contact</b><span>Bhopal, Madhya Pradesh</span><a href="tel:+919810995006">+91 98109 95006</a><a href="mailto:info@allino.in">info@allino.in</a><div className="socials"><a href="#">Instagram</a><a href="#">YouTube</a></div></div>
+    </div><div className="copyright">© 2026 Allino Teol Mobility Private Limited. All Rights Reserved.</div></footer>
+  </>
+}
