@@ -1,4 +1,4 @@
-/* Hero vehicle presentation — keep the two vehicles side-by-side with no overlap. */
+/* Hero vehicle presentation — use the real vehicle images from page.tsx and keep them side-by-side with no overlap. */
 .reference-visual {
   height: 620px;
   padding: 10px 0 105px;
@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 2.2vw, 34px);
+  gap: clamp(18px, 2.5vw, 38px);
 }
 
 .reference-car,
@@ -25,17 +25,15 @@
   filter: drop-shadow(0 24px 28px #0007);
 }
 
-/* Use the reliable local vehicle assets for the hero. */
+/* Do not replace the <img src> values from page.tsx with the old SVG assets. */
 .reference-car {
-  content: url("/allino-mobility/assets/alto-cng.svg");
-  width: min(54%, 430px);
-  height: 350px;
+  width: min(56%, 455px);
+  height: 365px;
 }
 
 .reference-bike {
-  content: url("/allino-mobility/assets/activa-6g.svg");
-  width: min(34%, 270px);
-  height: 330px;
+  width: min(36%, 295px);
+  height: 340px;
 }
 
 .reference-app-card {
@@ -56,17 +54,17 @@
 
   .reference-vehicle-stage {
     height: 430px;
-    gap: 12px;
+    gap: 14px;
   }
 
   .reference-car {
-    width: 55%;
-    height: 315px;
+    width: 56%;
+    height: 325px;
   }
 
   .reference-bike {
-    width: 35%;
-    height: 295px;
+    width: 36%;
+    height: 305px;
   }
 
   .reference-app-card {
@@ -82,17 +80,17 @@
 
   .reference-vehicle-stage {
     height: 390px;
-    gap: 8px;
+    gap: 9px;
   }
 
   .reference-car {
     width: 61%;
-    height: 280px;
+    height: 285px;
   }
 
   .reference-bike {
     width: 34%;
-    height: 255px;
+    height: 260px;
   }
 
   .reference-app-card {
@@ -118,7 +116,7 @@
 
   .reference-car {
     width: 62%;
-    height: 245px;
+    height: 250px;
   }
 
   .reference-bike {
