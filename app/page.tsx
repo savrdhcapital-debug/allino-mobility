@@ -5,6 +5,7 @@ import { ArrowRight, CalendarDays, CarFront, CheckCircle2, Headphones, KeyRound,
 
 const VEHICLE_IMAGES = {
   alto: "https://www.pngkit.com/png/detail/0-2623_india-suzuki-alto-maruti-suzuki-car-alto-k10.png",
+  vernaBlack: "https://asset.autocarindia.com/static/image-galleries/images/20260309_104806_4a3cb29a.jpg?fm=auto&q=75&w=728",
   activa: "https://images.91wheels.com/assets/b_images/gallery/honda/activa-6g/honda-activa-6g-1-1768544628.png",
   wagonr: "https://img1.kakaku.k-img.com/images/productimage/fullscale/K0000940369.jpg",
   dzire: "https://www.nicepng.com/png/detail/258-2589513_new-swift-dzire-2018.png",
@@ -54,7 +55,7 @@ export default function Home() {
 
           <motion.div className="reference-visual" initial={{ opacity: 0, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9, delay: .15 }}>
             <div className="reference-vehicle-stage">
-              <img className="reference-car" src={VEHICLE_IMAGES.alto} alt="Maruti Alto K10 CNG" />
+              <img className="reference-car" src={VEHICLE_IMAGES.vernaBlack} alt="Black Hyundai Verna top model" />
               <img className="reference-bike" src={VEHICLE_IMAGES.activa} alt="Honda Activa 6G" />
             </div>
             <div className="reference-app-card"><Smartphone size={34} /><div><b>ALL NEW<br />ALLINO APP</b><span>Book. Ride. Relax.</span><strong>DOWNLOAD NOW →</strong></div></div>
