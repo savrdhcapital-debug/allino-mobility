@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, CarFront, CheckCircle2, Headphones, KeyRound, ShieldCheck, Smartphone, Tag, type LucideIcon } from "lucide-react";
 
 const VEHICLE_IMAGES = {
-  alto: "https://www.pngkit.com/png/detail/261-2610825_maruti-suzuki-alto-k10-alto-k10.png",
+  alto: "https://www.pngkit.com/png/detail/0-2623_india-suzuki-alto-maruti-suzuki-car-alto-k10.png",
   activa: "https://images.91wheels.com/assets/b_images/gallery/honda/activa-6g/honda-activa-6g-1-1768544628.png",
   wagonr: "https://img1.kakaku.k-img.com/images/productimage/fullscale/K0000940369.jpg",
   dzire: "https://www.nicepng.com/png/detail/258-2589513_new-swift-dzire-2018.png",
