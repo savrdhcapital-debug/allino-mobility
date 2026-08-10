@@ -9,3 +9,13 @@ const localVehicleImages={alto:'assets/alto-cng.svg',wagonr:'assets/wagonr-cng.s
 function localizeVehicleImages(){ $$('img').forEach(img=>{const s=(img.getAttribute('src')||'').toLowerCase();const alt=(img.getAttribute('alt')||'').toLowerCase();let key=null;if(s.includes('alto')||alt.includes('alto'))key='alto';else if(s.includes('wagonr')||alt.includes('wagonr'))key='wagonr';else if(s.includes('dzire')||alt.includes('dzire'))key='dzire';else if(s.includes('activa')||alt.includes('activa'))key='activa';else if(s.includes('access')||alt.includes('access'))key='access';else if(s.includes('jupiter')||alt.includes('jupiter'))key='jupiter';if(key){img.src=localVehicleImages[key];img.classList.add('allino-product-image');img.removeAttribute('loading');img.style.background='transparent';img.style.objectFit='contain';img.style.mixBlendMode='normal';const box=img.closest('.card-image,.gallery,.main-vehicle,.bike-photo');if(box){box.style.background='transparent';box.style.backgroundImage='none';}}})}
 localizeVehicleImages();
 const heroImages=[['assets/alto-cng.svg','assets/activa-6g.svg','ALTO CNG'],['assets/wagonr-cng.svg','assets/access-125.svg','WAGONR CNG'],['assets/dzire-cng.svg','assets/jupiter-125.svg','DZIRE CNG']];let slide=0;const main=$('.main-vehicle img'),bike=$('.bike-photo img'),tag=$('.vehicle-tag');function showSlide(i){if(!main||!bike)return;slide=(i+heroImages.length)%heroImages.length;main.src=heroImages[slide][0];bike.src=heroImages[slide][1];[main,bike].forEach(img=>{img.style.background='transparent';img.style.objectFit='contain';img.style.mixBlendMode='normal';});if(tag)tag.textContent=heroImages[slide][2];$$('.dots i').forEach((d,n)=>d.classList.toggle('on',n===slide))}$$('.slider-arrow').forEach(b=>b.addEventListener('click',()=>showSlide(slide+(b.dataset.slide==='next'?1:-1))));if(main&&bike){showSlide(0);setInterval(()=>showSlide(slide+1),7000)}
+
+// How It Works: trigger staggered reveal + connecting-line progress on scroll.
+const howSection=document.querySelector('.how');
+if(howSection){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){howSection.classList.add('is-visible');}
+  else if('IntersectionObserver' in window){
+    const howObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){howSection.classList.add('is-visible');howObserver.unobserve(entry.target);}})},{threshold:.2,rootMargin:'0px 0px -8% 0px'});
+    howObserver.observe(howSection);
+  }else{howSection.classList.add('is-visible');}
+}
