@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, CarFront, CheckCircle2, Headphones, KeyRound, ShieldCheck, Smartphone, Tag, type LucideIcon } from "lucide-react";
 
 const VEHICLE_IMAGES = {
-  alto: "https://www.popularmaruti.com/storage/upload/vehicle/image/alto-cng_Solid-White.png",
+  alto: "https://www.marutisuzuki.com/adobe/assets/urn:aaid:aem:c83fe052-96e3-4df4-8ef1-403beabd57cb/as/5EA63CDAD5E1457EAAD114938980D06F.png",
   activa: "https://images.91wheels.com/assets/b_images/gallery/honda/activa-6g/honda-activa-6g-1-1768544628.png",
   wagonr: "https://img1.kakaku.k-img.com/images/productimage/fullscale/K0000940369.jpg",
   dzire: "https://www.nicepng.com/png/detail/258-2589513_new-swift-dzire-2018.png",
