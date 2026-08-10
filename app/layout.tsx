@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./hero.css";
+import NavigationBridge from "./NavigationBridge";
 
 export const metadata: Metadata = {
   title: "Allino — Self-Drive Mobility",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return <html lang="en"><body><NavigationBridge />{children}</body></html>;
 }
