@@ -1,1 +1,0 @@
-Home page animation assets added: home-animations.css, home-animations.js, home-animation-loader.js, and home-animation-init.js. Include home-animation-init.js on index.html before </body> to enable scroll animations.
