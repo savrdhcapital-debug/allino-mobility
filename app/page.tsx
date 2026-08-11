@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, CarFront, CheckCircle2, Headphones, KeyRound, ShieldCheck, Smartphone, Tag, type LucideIcon } from "lucide-react";
+import { useMemo, useState } from "react";
 
 const VEHICLE_IMAGES = {
   alto: "https://www.pngkit.com/png/detail/0-2623_india-suzuki-alto-maruti-suzuki-car-alto-k10.png",
@@ -29,12 +31,19 @@ const steps: [string, LucideIcon, string, string][] = [
 ];
 
 export default function Home() {
+  const [vehicleType, setVehicleType] = useState<"CAR" | "BIKE">("CAR");
+  const filteredVehicles = useMemo(() => vehicles.filter((v) => v.type === vehicleType), [vehicleType]);
+
   return (
     <main>
       <header className="header">
-        <a className="brand" href="#home"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></a>
-        <nav>{["Home", "About Us", "Our Fleet", "Pricing", "How It Works", "Blog", "Contact Us"].map((x) => <a key={x} href={`#${x.toLowerCase().replaceAll(" ", "-")}`}>{x}</a>)}</nav>
-        <a className="btn primary" href="#book">Book Now</a>
+        <Link className="brand" href="/" aria-label="Allino home"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></Link>
+        <input className="nav-toggle" id="home-nav-toggle" type="checkbox" aria-label="Open navigation" />
+        <label className="nav-toggle-label" htmlFor="home-nav-toggle"><span></span><span></span><span></span></label>
+        <nav className="site-nav" aria-label="Main navigation">
+          <Link href="/">Home</Link><Link href="/about/">About Us</Link><Link href="/fleet/">Our Fleet</Link><Link href="/pricing/">Pricing</Link><Link href="/how-it-works/">How It Works</Link><Link href="/blog/">Blog</Link><Link href="/contact/">Contact Us</Link>
+        </nav>
+        <Link className="btn primary header-book" href="/book/">Book Now</Link>
       </header>
 
       <section className="hero reference-hero" id="home" style={{ "--hero-image": `url(${BHOPAL_HERO})` } as React.CSSProperties}>
@@ -47,30 +56,30 @@ export default function Home() {
             <p>Self-drive cars &amp; self-ride bikes on rent in Bhopal.<br className="desktop-only" /> Affordable prices, easy booking &amp; trusted service.</p>
             <div className="hero-features"><Feature icon={CarFront} text="Self-Drive Freedom" /><Feature icon={Tag} text="Affordable Prices" /><Feature icon={ShieldCheck} text="Verified & Safe" /><Feature icon={Headphones} text="24×7 Support" /></div>
             <motion.div className="reference-booking" id="book" initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .25 }}>
-              <div className="reference-tabs"><button className="active">🚗 Self-Drive Car</button><button>🏍 Self-Ride Bike</button></div>
-              <div className="reference-booking-fields"><label>Pickup Location<input value="Bhopal, Madhya Pradesh" readOnly /></label><label>Pickup Date<input type="date" defaultValue="2026-08-10" /></label><label>Return Date<input type="date" defaultValue="2026-08-11" /></label></div>
-              <a className="btn primary reference-search" href="#our-fleet">SEARCH VEHICLES</a>
+              <div className="reference-tabs"><button type="button" className={vehicleType === "CAR" ? "active" : ""} onClick={() => setVehicleType("CAR")}>🚗 Self-Drive Car</button><button type="button" className={vehicleType === "BIKE" ? "active" : ""} onClick={() => setVehicleType("BIKE")}>🏍 Self-Ride Bike</button></div>
+              <div className="reference-booking-fields"><label>Pickup Location<input value="Bhopal, Madhya Pradesh" readOnly /></label><label>Pickup Date<input type="date" min="2026-08-11" /></label><label>Return Date<input type="date" min="2026-08-11" /></label></div>
+              <Link className="btn primary reference-search" href="/book/">SEARCH {vehicleType === "CAR" ? "CARS" : "BIKES"}</Link>
             </motion.div>
           </motion.div>
 
           <motion.div className="reference-visual" initial={{ opacity: 0, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9, delay: .15 }}>
             <div className="reference-vehicle-stage">
-              <img className="reference-car" src={VEHICLE_IMAGES.vernaBlack} alt="Black Hyundai Verna top model" />
-              <img className="reference-bike" src={VEHICLE_IMAGES.activa} alt="Honda Activa 6G" />
+              <img className="reference-car" src={VEHICLE_IMAGES.vernaBlack} alt="Black sedan" />
+              <img className="reference-bike" src={VEHICLE_IMAGES.activa} alt="Honda Activa scooter" />
             </div>
-            <div className="reference-app-card"><Smartphone size={34} /><div><b>ALL NEW<br />ALLINO APP</b><span>Book. Ride. Relax.</span><strong>DOWNLOAD NOW →</strong></div></div>
-            <div className="store-badges"><span>▶ Google Play</span><span> App Store</span></div>
+            <div className="reference-app-card"><Smartphone size={34} /><div><b>ALLINO<br />CUSTOMER PORTAL</b><span>Book. Ride. Relax.</span><Link href="/register/">CREATE ACCOUNT →</Link></div></div>
+            <div className="store-badges"><Link href="/register/">Customer Portal</Link><Link href="/login/">Sign In</Link></div>
           </motion.div>
         </div>
       </section>
 
       <section className="stats reference-stats"><div className="container stats-grid">{[["10,000+", "Happy Customers"], ["20+", "Well Maintained Vehicles"], ["100%", "Secure Payments"], ["24×7", "Customer Support"], ["4.8 / 5", "Customer Rating"]].map(([a, b]) => <div key={b}><b>{a}</b><span>{b}</span></div>)}</div></section>
-      <section className="how section" id="how-it-works"><div className="container"><div className="center"><div className="section-kicker">HOW IT WORKS</div><h2>Renting with Allino is simple and hassle-free.</h2></div><div className="steps">{steps.map(([n, Icon, title, text], i) => <motion.div className="step" key={n} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ delay: i * .1 }}><span>{n}</span><div className="step-icon"><Icon /></div><h3>{title}</h3><p>{text}</p>{i < 4 && <div className="connector"><i /></div>}</motion.div>)}</div></div></section>
-      <section className="fleet section" id="our-fleet"><div className="container"><div className="section-row"><div><div className="section-kicker">OUR FLEET</div><h2>Choose from our wide range of well-maintained vehicles.</h2><p>Clean, comfortable vehicles designed for everyday freedom.</p></div><a className="btn outline" href="#pricing">View All Vehicles →</a></div><div className="fleet-grid">{vehicles.map((v, i) => <motion.article className="vehicle-card" key={v.name} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }}><div className="vehicle-image"><span>{v.type}</span><em>Available*</em><img src={v.image} alt={v.name} /></div><div className="vehicle-body"><div className="vehicle-title"><h3>{v.name}</h3><b>★ 4.8</b></div><p>{v.meta}</p><div className="vehicle-price"><strong>{v.price}<small>/day</small></strong><a className="btn primary" href="#book">Book Now</a></div></div></motion.article>)}</div></div></section>
-      <section className="pricing section" id="pricing"><div className="container"><div className="center"><div className="section-kicker">SIMPLE PRICING</div><h2>Pay for the time you need.</h2><p>Short trips, weekends and longer stays.</p></div><div className="plans">{[["1 DAY", "₹1,800"], ["3 DAYS", "₹5,100"], ["7 DAYS", "₹10,500"]].map((p, i) => <article className={i === 1 ? "popular" : ""} key={p[0]}>{i === 1 && <label>POPULAR</label>}<span>{p[0]}</span><strong>{p[1]}<small> / period</small></strong><ul><li>✓ KYC verification</li><li>✓ Support included</li><li>✓ Transparent pricing</li></ul><a className={`btn ${i === 1 ? "primary" : "outline"}`} href="#book">Book Now</a></article>)}</div></div></section>
-      <section className="about section" id="about-us"><div className="container about-grid"><div className="about-photo"><img src={BHOPAL_HERO} alt="Taj-ul-Masajid, Bhopal" /></div><div><div className="section-kicker">ABOUT ALLINO</div><h2>Your trusted mobility partner in Bhopal.</h2><p>Allino gives customers a simple way to rent clean, verified cars and scooters without the cost of ownership.</p><div className="checks"><span>✓ Customer-first approach</span><span>✓ Transparent pricing</span><span>✓ Well-maintained fleet</span><span>✓ Responsive support</span></div><a className="btn primary" href="#contact">About Allino <ArrowRight size={18} /></a></div></div></section>
-      <section className="contact section" id="contact"><div className="container contact-box"><div><div className="section-kicker light">READY TO RIDE?</div><h2>Freedom on your terms.</h2><p>Book your next ride or talk to our team.</p></div><div className="contact-actions"><a className="btn yellow" href="tel:+919893345906">Call +91 98933 45906</a><a className="btn light" href="#book">Book a Ride →</a></div></div></section>
-      <footer><div className="container footer-grid"><div><a className="brand" href="#home"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></a><p>Self-drive cars and self-ride bikes in Bhopal. Freedom on your terms.</p></div><div><b>Company</b><a href="#about-us">About Us</a><a href="#our-fleet">Our Fleet</a><a href="#pricing">Pricing</a></div><div><b>Support</b><a href="#how-it-works">How It Works</a><a href="#contact">Contact</a><a href="#book">Book Now</a></div><div><b>Contact</b><span>Bhopal, Madhya Pradesh</span><a href="tel:+919893345906">+91 98933 45906</a></div></div><div className="copyright">© 2026 Allino Mobility. All rights reserved.</div></footer>
+      <section className="how section" id="how-it-works"><div className="container"><div className="center"><div className="section-kicker">HOW IT WORKS</div><h2>Renting with Allino is simple and hassle-free.</h2></div><div className="steps">{steps.map(([n, Icon, title, text], i) => <motion.div className="step" key={n} initial={{ opacity: 0, y: 35 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .25 }} transition={{ delay: i * .1 }}><span>{n}</span><div className="step-icon"><Icon /></div><h3>{title}</h3><p>{text}</p>{i < 4 && <div className="connector"><i /></div>}</motion.div>)}</div><div className="center mt"><Link className="btn outline" href="/how-it-works/">See the complete booking process →</Link></div></div></section>
+      <section className="fleet section" id="our-fleet"><div className="container"><div className="section-row"><div><div className="section-kicker">OUR FLEET</div><h2>Choose from our wide range of well-maintained vehicles.</h2><p>Clean, comfortable vehicles designed for everyday freedom.</p></div><Link className="btn outline" href="/fleet/">View All Vehicles →</Link></div><div className="fleet-grid">{filteredVehicles.map((v, i) => <motion.article className="vehicle-card" key={v.name} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .08 }}><div className="vehicle-image"><span>{v.type}</span><em>Available*</em><img src={v.image} alt={v.name} /></div><div className="vehicle-body"><div className="vehicle-title"><h3>{v.name}</h3><b>★ 4.8</b></div><p>{v.meta}</p><div className="vehicle-price"><strong>{v.price}<small>/day</small></strong><Link className="btn primary" href="/book/">Book Now</Link></div></div></motion.article>)}</div></div></section>
+      <section className="pricing section" id="pricing"><div className="container"><div className="center"><div className="section-kicker">SIMPLE PRICING</div><h2>Pay for the time you need.</h2><p>Short trips, weekends and longer stays.</p></div><div className="plans">{[["1 DAY", "₹1,800"], ["3 DAYS", "₹5,100"], ["7 DAYS", "₹10,500"]].map((p, i) => <article className={i === 1 ? "popular" : ""} key={p[0]}>{i === 1 && <label>POPULAR</label>}<span>{p[0]}</span><strong>{p[1]}<small> / period</small></strong><ul><li>✓ KYC verification</li><li>✓ Support included</li><li>✓ Transparent pricing</li></ul><Link className={`btn ${i === 1 ? "primary" : "outline"}`} href="/book/">Book Now</Link></article>)}</div><div className="center mt"><Link href="/pricing/" className="btn outline">See all pricing plans →</Link></div></div></section>
+      <section className="about section" id="about-us"><div className="container about-grid"><div className="about-photo"><img src={BHOPAL_HERO} alt="Taj-ul-Masajid, Bhopal" /></div><div><div className="section-kicker">ABOUT ALLINO</div><h2>Your trusted mobility partner in Bhopal.</h2><p>Allino gives customers a simple way to rent clean, verified cars and scooters without the cost of ownership.</p><div className="checks"><span>✓ Customer-first approach</span><span>✓ Transparent pricing</span><span>✓ Well-maintained fleet</span><span>✓ Responsive support</span></div><Link className="btn primary" href="/about/">About Allino <ArrowRight size={18} /></Link></div></div></section>
+      <section className="contact section" id="contact"><div className="container contact-box"><div><div className="section-kicker light">READY TO RIDE?</div><h2>Freedom on your terms.</h2><p>Book your next ride or talk to our team.</p></div><div className="contact-actions"><a className="btn yellow" href="tel:+919893345906">Call +91 98933 45906</a><Link className="btn light" href="/book/">Book a Ride →</Link></div></div></section>
+      <footer><div className="container footer-grid"><div><Link className="brand" href="/"><span className="brand-mark">∞</span><span><b>Allino</b><small>Self-Drive Mobility</small></span></Link><p>Self-drive cars and self-ride bikes in Bhopal. Freedom on your terms.</p></div><div><b>Company</b><Link href="/about/">About Us</Link><Link href="/fleet/">Our Fleet</Link><Link href="/pricing/">Pricing</Link><Link href="/blog/">Blog</Link></div><div><b>Support</b><Link href="/how-it-works/">How It Works</Link><Link href="/contact/">Contact</Link><Link href="/book/">Book Now</Link></div><div><b>Contact</b><span>Bhopal, Madhya Pradesh</span><a href="tel:+919893345906">+91 98933 45906</a><a href="mailto:info@allino.in">info@allino.in</a></div></div><div className="copyright">© 2026 Allino Mobility. All rights reserved.</div></footer>
     </main>
   );
 }
