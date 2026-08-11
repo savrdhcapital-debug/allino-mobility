@@ -6,8 +6,10 @@ const basePath = isGitHubPages ? "/allino-mobility" : "";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
+  // GitHub Pages project-site path. Next.js automatically applies basePath
+  // to routes and its generated static assets, so assetPrefix is intentionally
+  // omitted to avoid broken /_next CSS/JS URLs on nested pages.
   basePath,
-  assetPrefix: basePath ? `${basePath}/` : undefined,
   trailingSlash: true,
   images: { unoptimized: true },
   env: {
