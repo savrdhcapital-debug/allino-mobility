@@ -2,7 +2,7 @@ name: Deploy Allino Next.js to GitHub Pages
 
 on:
   push:
-    branches: [main, feature/nextjs-rental-platform, feature/homepage-reference-final, feature/allino-all-pages, fix/github-pages-build, fix/homepage-hero-styling, fix/allino-page-assets]
+    branches: [main, version-004-fix-pages-deployment]
   workflow_dispatch:
 
 permissions:
@@ -31,10 +31,6 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Copy public vehicle assets
-        run: |
-          mkdir -p ./out/assets
-          cp -R ./assets/. ./out/assets/
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
@@ -43,6 +39,7 @@ jobs:
           path: ./out
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
