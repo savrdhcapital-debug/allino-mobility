@@ -1,0 +1,6 @@
+"use client";
+
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+
+export default function ForgotPasswordPage() { const [sent,setSent]=useState(false); const submit=(e:FormEvent)=>{e.preventDefault();setSent(true)}; return <main className="min-h-screen bg-slate-950 px-5 py-12 text-white"><div className="mx-auto max-w-md"><Link href="/" className="text-2xl font-black">ALLINO</Link><div className="mt-10 rounded-3xl bg-white p-7 text-slate-900 shadow-2xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-blue-600">Account Recovery</p><h1 className="mt-2 text-3xl font-extrabold">Reset your password</h1><p className="mt-2 text-slate-500">Enter your registered email to request a secure reset link.</p><form onSubmit={submit} className="mt-7 space-y-4"><input required type="email" className="w-full rounded-2xl border border-slate-200 px-4 py-3" placeholder="you@example.com"/><button className="w-full rounded-2xl bg-blue-700 px-5 py-3.5 font-bold text-white">SEND RESET LINK</button></form>{sent&&<p className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm text-emerald-800">Request captured for backend integration. No email was sent from this static preview.</p>}<Link href="/login" className="mt-6 block text-center text-sm font-bold text-blue-600">Back to login</Link></div></div></main>; }
