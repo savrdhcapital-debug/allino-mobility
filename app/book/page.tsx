@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import PageShell from "../PageShell";
 import { vehicles } from "../../lib/vehicles";
@@ -23,7 +23,7 @@ export default function Book(){
     if(first) setVehicle(first.slug);
   }
 
-  function submit(e:React.FormEvent<HTMLFormElement>){
+  function submit(e:FormEvent<HTMLFormElement>){
     e.preventDefault();
     const form=new FormData(e.currentTarget);
     const booking={
@@ -56,7 +56,7 @@ export default function Book(){
       <label>Return Date<input name="returnDate" type="date" min={pickupDate||today} value={returnDate} onChange={e=>setReturnDate(e.target.value)} required/></label>
       <label>Return Time<input name="returnTime" type="time" defaultValue="10:00" required/></label>
       <label>Vehicle<select name="vehicle" value={vehicle} onChange={e=>setVehicle(e.target.value)}>{list.map(v=><option value={v.slug} key={v.slug}>{v.name}</option>)}</select></label>
-      <label>Transmission<select name="transmission" value={selected.transmission} readOnly><option>{selected.transmission}</option></select></label>
+      <label>Transmission<select name="transmission" value={selected.transmission} disabled><option>{selected.transmission}</option></select></label>
       <label>Customer Name<input name="customerName" required placeholder="Full name"/></label>
       <label>Phone Number<input name="phone" required placeholder="10-digit mobile" pattern="[0-9]{10}" inputMode="numeric"/></label>
       <label>Email<input name="email" type="email" required placeholder="you@example.com"/></label>
