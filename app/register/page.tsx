@@ -1,0 +1,10 @@
+"use client";
+
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+
+export default function RegisterPage() {
+  const [message, setMessage] = useState("");
+  const submit = (e: FormEvent) => { e.preventDefault(); setMessage("Registration API is ready to connect. No data was submitted."); };
+  return <main className="min-h-screen bg-slate-950 px-5 py-12 text-white"><div className="mx-auto max-w-md"><Link href="/" className="text-2xl font-black">ALLINO</Link><div className="mt-10 rounded-3xl bg-white p-7 text-slate-900 shadow-2xl"><p className="text-sm font-bold uppercase tracking-[.2em] text-blue-600">Customer Portal</p><h1 className="mt-2 text-3xl font-extrabold">Create your account</h1><p className="mt-2 text-slate-500">Book vehicles and manage every trip from one place.</p><form onSubmit={submit} className="mt-7 space-y-4"><label className="block text-sm font-semibold">Full name<input required className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3" placeholder="Your name" /></label><label className="block text-sm font-semibold">Phone<input required type="tel" className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3" placeholder="+91" /></label><label className="block text-sm font-semibold">Email<input required type="email" className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3" placeholder="you@example.com" /></label><label className="block text-sm font-semibold">Password<input required minLength={8} type="password" className="mt-2 w-full rounded-2xl border border-slate-200 px-4 py-3" placeholder="Minimum 8 characters" /></label><button className="w-full rounded-2xl bg-blue-700 px-5 py-3.5 font-bold text-white">CREATE ACCOUNT</button>{message && <p className="rounded-xl bg-blue-50 p-3 text-sm text-blue-800">{message}</p>}</form><p className="mt-6 text-center text-sm text-slate-500">Already registered? <Link href="/login" className="font-bold text-blue-600">Sign in</Link></p></div></div></main>;
+}
