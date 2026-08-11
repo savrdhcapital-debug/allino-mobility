@@ -1,13 +1,13 @@
 export type Vehicle={id:string;slug:string;name:string;category:"Car"|"Bike";image:string;pricePerDay:number;fuel:string;transmission:string;seats:string;rating:number;availability:string;features:string[];description:string};
 
-// Vehicle imagery is intentionally external/photographic now that the old local SVG/vector assets were removed.
+// Use stable direct image URLs. The previous values pointed to webpage URLs, so several cards rendered broken images.
 const VEHICLE_IMAGES={
-  alto:"https://www.kindpng.com/picc/m/123-1232063_alto-k10-car-png-transparent-png.png",
-  wagonr:"https://www.marutisuzuki.com/adobe/assets/urn:aaid:aem:243a4fb3-c978-4da0-a7c7-4b0759723656/as/wagonr_Variant-Banner_750x890.jpg?height=890&width=750",
-  dzire:"https://www.pngwing.com/en/free-png-vryxy",
-  activa:"https://www.pngarts.com/explore/238481",
-  access:"https://www.pngkey.com/png/detail/245-2451063_suzuki-new-access-125cc-scooters-suzuki-access-125.png",
-  jupiter:"https://www.bikedekho.com/tvs/jupiter-125/images"
+  alto:"https://commons.wikimedia.org/wiki/Special:FilePath/Maruti%20Suzuki%20Alto%20K10.jpg",
+  wagonr:"https://commons.wikimedia.org/wiki/Special:FilePath/Maruti%20Wagon%20R.jpg",
+  dzire:"https://commons.wikimedia.org/wiki/Special:FilePath/Maruti%20Suzuki%20Dzire%20VXi%20VVT.JPG",
+  activa:"https://commons.wikimedia.org/wiki/Special:FilePath/Honda%20Activa%206G.jpg",
+  access:"https://commons.wikimedia.org/wiki/Special:FilePath/Suzuki%20access%20125.jpg",
+  jupiter:"https://commons.wikimedia.org/wiki/Special:FilePath/TVS%20Jupiter.jpg"
 };
 
 export const vehicles:Vehicle[]=[
