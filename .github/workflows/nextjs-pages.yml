@@ -2,7 +2,9 @@ name: Deploy Allino Next.js to GitHub Pages
 
 on:
   push:
-    branches: [main, version-004-fix-pages-deployment]
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
