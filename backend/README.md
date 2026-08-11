@@ -1,27 +1,28 @@
-# Allino Mobility Backend
+# Allino Mobility API
 
-This directory is the backend foundation for Allino Mobility. The public website is intentionally frozen and remains deployed from `main` through GitHub Pages.
+This service is the real backend for customer accounts and the operations CRM. The GitHub Pages website remains a static frontend; authentication and data access happen here through PostgreSQL + Prisma.
 
-## Why the backend is separate
+## Authentication
 
-The current Next.js application uses `output: "export"`, so GitHub Pages can serve the public static website but cannot run Next.js API routes or server-side Prisma code. Backend services therefore must be deployed separately.
+- `POST /api/v1/auth/register` — create a customer account.
+- `POST /api/v1/auth/login` — verify email/password and create a persistent session.
+- `GET /api/v1/auth/me` — return the current authenticated user.
+- `POST /api/v1/auth/logout` — revoke the current session.
+- `GET /api/v1/admin/me` — require an authenticated ADMIN user.
+- `GET /api/v1/admin/summary` — authenticated CRM KPIs.
+- `GET /health` — API + database health check.
 
-## Responsibilities
+Passwords are stored as bcrypt hashes. Sessions use random opaque tokens stored only as SHA-256 hashes in PostgreSQL. The API also sets an HTTP-only session cookie; the SPA can use the returned access token for GitHub Pages cross-origin requests.
 
-- Customer accounts and authentication
-- Vehicle/fleet management
-- Availability checks
-- Booking creation and lifecycle management
-- KYC/document status
-- Payments and deposits
-- Notifications
-- Admin/operations APIs
-- Reviews, support tickets, maintenance and damage reports
+## Production setup
 
-## Existing database model
+1. Provision PostgreSQL.
+2. Set `DATABASE_URL` in the backend service.
+3. Set `ALLOWED_ORIGINS` to the exact website origin(s), not `*` in production.
+4. Set `COOKIE_SECURE=true` when the API uses HTTPS.
+5. Run `npx prisma generate` and `npx prisma db push` (or deploy an equivalent reviewed migration).
+6. Set `DEMO_ADMIN_EMAIL` and a strong `DEMO_ADMIN_PASSWORD` as deployment secrets, then run `npm run seed` once.
+7. Deploy this `backend` directory as a Node service. Railway, Render, or another Node host can run `npm run build` then `npm start`.
+8. Set the GitHub repository variable `NEXT_PUBLIC_API_URL` to the deployed API URL and redeploy the Pages frontend.
 
-The repository already contains `prisma/schema.prisma` with the initial `User`, `Vehicle`, and `Booking` models plus booking/payment/KYC enums. Future API work should extend that schema rather than introducing a second data model.
-
-## Deployment rule
-
-Do not move the public website away from GitHub Pages as part of this phase. The backend can be deployed independently on a server/runtime that supports Node.js and PostgreSQL. The frontend will consume the backend through an environment-configured API base URL when that integration is approved.
+Do not commit `.env` files, database credentials, session secrets, or production passwords.
