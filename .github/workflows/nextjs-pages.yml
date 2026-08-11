@@ -18,6 +18,7 @@ concurrency:
 
 env:
   NEXT_TELEMETRY_DISABLED: 1
+  NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
 
 jobs:
   build:
